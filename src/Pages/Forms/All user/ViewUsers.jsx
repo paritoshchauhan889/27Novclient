@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import Sidebar from '../../../components/Sidebar/Sidebar'
 import {URL}  from '../../../api/Api'
+import { Link } from 'react-router-dom'
 
 const ViewUsers = () => {
     const [users, setUser] = useState([])
@@ -12,7 +13,7 @@ myfun();
     },[])
 
     const myfun = async() =>{
-const data = await axios.get(`${URL}/all-users`)
+const data = await axios.get(`${URL}/auth/all-users`)
 if(data){
     setUser(data.data.users)
 }
@@ -36,6 +37,7 @@ if(data){
     <th>Username</th>
     <th>Email</th>
     <th>Join Date</th>
+    <th>Update</th>
     </tr>
   </thead>
 
@@ -46,6 +48,9 @@ if(data){
         <td>{value.username}</td>
         <td>{value.email}</td>
         <td>{new Date(value.createdAt).toDateString()}</td>
+        <td>
+      <Link to={`/dashboard/edit-user/${value._id}`}><button className='btn btn-primary' style={{marginRight:5}}>Update</button></Link>
+        </td>
     </tr>
     )
     }

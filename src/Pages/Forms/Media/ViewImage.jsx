@@ -19,7 +19,7 @@ const ViewImage = () => {
   };
 
   const getUserData = async () => {
-    const res = await axios.get(`${URL}/getfile`, {
+    const res = await axios.get(`${URL}/image/getfile`, {
       headers: {
         "Content-Type": "application/json"
       }

@@ -56,6 +56,8 @@ import Privacy from './Pages/Terms/Privacy/Privacy-Policy';
 import ConferencePuclication from './Pages/Terms/ConferencePublciation/ConferencePuclication';
 import Exhibit from './Pages/Exhibit/Exhibit';
 import Reviewers from './Pages/Reviewers/Reviewers';
+import ChangePassword from './Pages/Settings/ChangePassword';
+import EditUser from './Pages/Forms/All user/EditUser';
 
 
 
@@ -184,7 +186,12 @@ const App = () => {
 <Route path='/dashboard/edit-venue/:id' element={<PrivateRoute isAuthenticated={isAuthenticated} />}>
 <Route path='/dashboard/edit-venue/:id' element={<EditVenue />} />
 </Route>
-
+<Route path='/dashboard/edit-password/:id' element={<PrivateRoute isAuthenticated={isAuthenticated} />}>
+<Route path='/dashboard/edit-password/:id' element={<ChangePassword/>} />
+</Route>
+<Route path='/dashboard/edit-user/:id' element={<PrivateRoute isAuthenticated={isAuthenticated} />}>
+<Route path='/dashboard/edit-user/:id' element={<EditUser/>} />
+</Route>
 
 
 

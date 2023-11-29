@@ -5,9 +5,6 @@ import { Link } from 'react-router-dom';
 
 
 
-
-
-
 const itemsPerPage = 10;
 
 

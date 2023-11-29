@@ -34,7 +34,7 @@ const Login = ({ isUserAuthenticated }) => {
     try {
       
   
-      const { data } = await axios.post(`${URL}/login`, {
+      const { data } = await axios.post(`${URL}/auth/login`, {
         email: inputs.email,
         password: inputs.password,
       });

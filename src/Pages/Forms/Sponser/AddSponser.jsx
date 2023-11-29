@@ -1,15 +1,16 @@
 import React from 'react'
 import { useState } from 'react'
-import { addSponser } from '../../../api/Api' 
+import { URL } from '../../../api/Api' 
 import {  useNavigate } from 'react-router-dom'
 import ViewSponser from './ViewSponser'
 import Sidebar from '../../../components/Sidebar/Sidebar'
 import { country } from '../../../components/Country/Country'
+import axios from 'axios'
 
 
 const SponserForm = () => {
 
-    const dafaultValue={
+    const defaultValue={
         sponserfullname:'',
         sponseremail:'',
         sponserphonenumber:'',
@@ -23,20 +24,35 @@ const SponserForm = () => {
         sponserabout:'',
     }
 
-const [sponser,setSponser]=useState(dafaultValue);
+const [sponser, setSponser] = useState(defaultValue);
 const navigate = useNavigate();
 
-// form value
-    const onValueChange=(e)=>{
-        setSponser({...sponser,[e.target.name]:e.target.value});
-    }
+const onValueChange = (e) => {
+  setSponser({ ...sponser, [e.target.name]: e.target.value });
+};
 
-    const addSponserDetails = async()=>{
-      alert('Data Submitted successfully');
-       await addSponser(sponser);
+const addSponser = async (sponserData) => {
+  try {
+    const response = await axios.post(`${URL}/sponser/add-sponser`, sponserData);
 
-navigate('/dashboard/add-sponser');
+    if (response.status === 200) {
+      console.log('Sponser added successfully:', response.data);
+      // You can perform additional actions if needed
+    } else {
+      console.error('Failed to add sponser:', response.data);
+      // Handle the error appropriately
     }
+  } catch (error) {
+    console.error('An error occurred while adding sponser:', error);
+    // Handle the error appropriately
+  }
+};
+
+const addSponserDetails = async () => {
+  alert('Data Submitted successfully');
+  await addSponser(sponser);
+  navigate('/dashboard/add-sponser');
+};
   return (
     <>
 

@@ -25,7 +25,7 @@ const AddMedia = () => {
       }
     }
 
-    const res = await axios.post(`${URL}/upload`, formData, config);
+    const res = await axios.post(`${URL}/image/upload`, formData, config);
 
 
     if (res.status === 200) {
@@ -44,7 +44,7 @@ const AddMedia = () => {
         <div className='container mt-3'>
         <h3 className='text-center'>Upload your File Here</h3>
 
-        <form className="row g-2 needs-validation" noValidate>
+        <form className="row g-2 needs-validation" >
           <div className="col-md-4">
             <label htmlFor="validationCustom01" className="form-label">File Name</label>
             <input type="text" className="form-control" id="validationCustom01" value={name} onChange={(e) => setName(e.target.value)} required />

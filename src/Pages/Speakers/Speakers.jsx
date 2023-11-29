@@ -5,9 +5,7 @@ import Navbar from '../../components/Header/Navbar';
 import Footer from '../../components/Footer/Footer';
 import { useEffect, useState } from 'react';
 import { getSpeakers } from '../../api/Api';
-
-// Import the default avatar image
-import defaultAvatar from '../../api/Assets/img/vector.jpg'; // Replace with the actual path
+import defaultAvatar from '../../api/Assets/img/vector.jpg'; 
 
 const Speakers = () => {
   const [speakers, setSpeakers] = useState([]);
@@ -38,7 +36,6 @@ const Speakers = () => {
                   {speaker.speakerimage ? (
                     <img src={speaker.speakerimage} alt={`Speaker ${speaker.speakerfullname}`} className="img-fluid"  style={{ width: '400px', height: '300px' }} />
                   ) : (
-                    // Display the default avatar image if speakerimage is not available
                     <img src={defaultAvatar} alt={`Avatar for ${speaker.speakerfullname}`} className="img-fluid" style={{ maxWidth: '100%', maxheight: '200px' }}/>
                   )}
                   <div className="details">

@@ -110,7 +110,7 @@ const Sidebar = () => {
             <strong>User</strong>
           </Link>
           <ul className="dropdown-menu dropdown-menu-dark text-small shadow">
-            <Link className="dropdown-item" to="#">Settings</Link>
+            <Link className="dropdown-item" to="/dashboard/edit-password/:id">Settings</Link>
             <Link className="dropdown-item" to="#">Profile</Link>
             <hr className="dropdown-divider" />
             <Link className="dropdown-item" to="/login" onClick={handleLogout}>Sign out</Link>

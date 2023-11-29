@@ -27,7 +27,7 @@ setInputs(prevState =>({
   const handleSubmit = async(e)  =>{
     e.preventDefault();
     try {
-    const {data} = await axios.post(`${localhost}/register`,{username:inputs.username,email:inputs.email,password:inputs.password})
+    const {data} = await axios.post(`${localhost}/auth/register`,{username:inputs.username,email:inputs.email,password:inputs.password})
     if(data.success){
       alert("User login Successfully"); 
       navigate("/login");
